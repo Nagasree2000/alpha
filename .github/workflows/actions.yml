@@ -10,4 +10,6 @@ jobs:
         with:
           who-to-greet: naga sree
       - name: Output getting
-        run: git clone https://github.com/Nagasree2000/alpha.git
+        run: |
+          git clone https://github.com/Nagasree2000/alpha.git
+          git ls-files
