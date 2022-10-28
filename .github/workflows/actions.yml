@@ -2,16 +2,12 @@ name: Simple Actions
 on: [push]
 jobs:
   simple-git-action:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Simple Actions
-        id: gtu
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: naga sree
-      - name: Output getting
+        uses: actions/checkout@v1
+      - name: getting our local repo
         run: |
+          pwd
+          ls -a
           
-          git clone https://github.com/Nagasree2000/alpha.git
-          git add .
-          git ls-files
