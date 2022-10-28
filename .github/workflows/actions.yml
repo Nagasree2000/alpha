@@ -11,5 +11,6 @@ jobs:
           who-to-greet: naga sree
       - name: Output getting
         run: |
+          git init
           git clone https://github.com/Nagasree2000/alpha.git
           git ls-files
