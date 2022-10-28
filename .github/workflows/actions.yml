@@ -6,6 +6,10 @@ on:
       - opened
       - closed
       - reopened
+  issues:
+    types:
+      - opened
+      - closed
     
 jobs:
   simple-git-action:
