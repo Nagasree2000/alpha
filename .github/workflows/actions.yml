@@ -15,5 +15,6 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
+          git checkout HEAD^
           
           
