@@ -9,5 +9,5 @@ jobs:
       - name: getting our local repo
         run: |
           pwd
-          ls -a
+          ls 
           
