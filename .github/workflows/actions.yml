@@ -1,5 +1,12 @@
 name: Simple Actions
-on: [push]
+on:
+  push:
+  pull_request:
+    types:
+      - opened
+      - closed
+      - reopened
+    
 jobs:
   simple-git-action:
     runs-on: ubuntu-latest
@@ -16,5 +23,6 @@ jobs:
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
           git log --oneline
+          
           
           
