@@ -10,4 +10,4 @@ jobs:
         with:
           who-to-greet: naga sree
       - name: Output getting
-        run: echo {{steps.gtu}}
+        run: echo "${{steps.gtu.outputs.time}}"
