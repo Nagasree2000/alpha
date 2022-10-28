@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Simple Actions
         id: gtu
-        uses: actions/hello-world-javascript-action
+        uses: actions/hello-world-javascript-action@v1
         with:
           who-to-greet: naga sree
       - name: Output getting
