@@ -13,4 +13,5 @@ jobs:
         run: |
           git init
           git clone https://github.com/Nagasree2000/alpha.git
+          git add .
           git ls-files
