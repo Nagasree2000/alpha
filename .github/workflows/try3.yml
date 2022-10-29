@@ -2,13 +2,15 @@ name: Shell Commands
 on: [push]
 jobs:
   run-shell-command:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     steps:
       - name: echo a string
         run: |
           git init
           ls -a 
           git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "anonymous@gmail.com"
+          git config --global user.name "anonymous"
           git fetch
           git pull origin master
           ls -a 
