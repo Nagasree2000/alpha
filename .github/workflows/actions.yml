@@ -9,6 +9,30 @@ env:
   MY_VAR: ${{secrets.MY_VAR}} 
 
 jobs:
+  ownpush-without-checkout: 
+    runs-on: ubuntu-latest
+    steps:
+      - name : pushing random text
+        run: |
+          pwd
+          ls -a 
+          git init 
+          git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "demo@gmail.com"
+          git config --global user.name "anonymous"
+          git fetch
+          git checkout master
+          git branch --set-upstream-to=origin/master
+          git pull
+          ls -a 
+          echo $RANDOM >> random.txt
+          ls -a 
+          git add -A 
+          git commit -m "random file"
+          git push 
+          
+    
+
   custome-env-variables:
     env: 
       VAR3 : "Available in this job"
