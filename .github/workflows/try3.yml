@@ -1,24 +1,22 @@
 name: Shell Commands
 on: [push]
 jobs:
-  run-shell-command:
-    runs-on: ubuntu-22.04
+  dump_contexts_to_log:
+    runs-on: ubuntu-latest
     steps:
-      - name: echo a string
-        run: |
-          git init
-          ls -a 
-          git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
-          git config --global user.email "anonymous@gmail.com"
-          git config --global user.name "anonymous"
-          git fetch
-          git pull origin master
-          ls -a 
-          echo $RANDOM >> new.txt
-          ls -a 
-          git add -A 
-          git commit -m "ad1ded again"
-          git push origin master
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
+      - name: Dump job context
+        run: echo '${{ toJSON(job) }}'
+      - name: Dump steps context
+        run: echo '${{ toJSON(steps) }}'
+      - name: Dump runner context
+        run: echo '${{ toJSON(runner) }}'
+      - name: Dump strategy context
+        run: echo '${{ toJSON(strategy) }}'
+      - name: Dump matrix context
+        run: echo '${{ toJSON(matrix) }}'
 
   create_issue:
     runs-on: ubuntu-latest
