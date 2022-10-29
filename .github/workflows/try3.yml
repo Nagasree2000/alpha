@@ -22,5 +22,5 @@ jobs:
       - name: powershell Commands
         run: Get-Location
       - name: directory path
-        run: ls
+        run: pwd
         shell: bash
