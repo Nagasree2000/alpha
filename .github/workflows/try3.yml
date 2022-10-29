@@ -16,7 +16,8 @@ jobs:
       - name: Dump strategy context
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
-        run: echo '${{ toJSON(matrix) }}'
+        run: echo runner.os
+        
 
   create_issue:
     runs-on: ubuntu-latest
