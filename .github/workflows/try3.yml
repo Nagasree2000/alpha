@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: functions
-        run:  |
-          echo contains('Hello','lo')
-          echo startsWith('Hello','He')
-          echo endsWith('Hello','o')
+        run: |
+          echo contains('Hello' , 'lo')
+          echo startsWith('Hello', 'He')
+          echo endsWith('Hello', 'o')
           echo format('Hello {0} {1} {2}','na','mo','rs')
           fruits: [ { snames: apple, quantity: 1 },
           { snames: orange, quantity: 2 },
