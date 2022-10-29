@@ -6,7 +6,7 @@ on:
       - devop
       - feature   
     paths:
-      - !./try3.yml
+      - !**try3.yml
     tags:
       - v1
   
