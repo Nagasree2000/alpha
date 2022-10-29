@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: functions
         run:  |
-          echo contains('Hello','o')
+          echo contains('Hello','lo')
           echo startsWith('Hello','He')
           echo endsWith('Hello','o')
           echo format('Hello {0} {1} {2}','na','mo','rs')
