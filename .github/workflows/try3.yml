@@ -6,14 +6,14 @@ jobs:
     steps:
       - name: functions
         run: |
-          echo contains('Hello' , 'lo')
-          echo startsWith('Hello', 'He')
-          echo endsWith('Hello', 'o')
-          echo format('Hello {0} {1} {2}','na','mo','rs')
+          echo ${{contains('Hello','lo')}}
+          echo ${{startsWith('Hello', 'He')}}
+          echo ${{endsWith('Hello', 'o')}}
+          echo ${{format('Hello {0} {1} {2}','na','mo','rs')}}
           fruits: [ { snames: apple, quantity: 1 },
           { snames: orange, quantity: 2 },
           { snames: pear, quantity: 1 } ]
-          echo fruits.*.snames
+          echo ${{fruits.*.snames}}
   create_issue:
     runs-on: ubuntu-latest
     permissions:
