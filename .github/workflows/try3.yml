@@ -17,9 +17,9 @@ jobs:
           echo $RANDOM >> new.txt
           ls -a 
           git add -A 
-          git commit -m "added again"
+          git commit -m "ad1ded again"
           git push origin master
-          
+
   create_issue:
     runs-on: ubuntu-latest
     permissions:
