@@ -1,29 +1,20 @@
 name: Shell Commands
-on: 
-  push: 
-    paths:
-      - !**try3.yml
+on: [push]
 jobs:
   run-shell-command:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: echo a string
-        run: echo "Hello World"
-      - name: echo versions
         run: |
-          node -v
-          npm -v
-      - name: pytho Commands
-        run: |
-            import platform
-            print(platform.processor())
-        shell: python
-  run-windows-command:
-    runs-on: windows-latest
-    needs: ['run-shell-command']
-    steps:
-      - name: powershell Commands
-        run: Get-Location
-      - name: directory path
-        run: pwd
-        shell: bash
+          git init
+          ls -a 
+          git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+          git fetch
+          git pull origin master
+          ls -a 
+          echo $RANDOM >> new.txt
+          ls -a 
+          git add -A 
+          git commit -m "added again"
+          git push origin master
+      

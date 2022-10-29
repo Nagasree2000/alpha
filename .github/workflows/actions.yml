@@ -9,7 +9,7 @@ env:
   MY_VAR: ${{secrets.MY_VAR}} 
 
 jobs:
-  
+
     
 
   custome-env-variables:
