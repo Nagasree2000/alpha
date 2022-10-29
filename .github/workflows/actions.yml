@@ -10,8 +10,6 @@ env:
 
 jobs:
 
-    
-
   custome-env-variables:
     env: 
       VAR3 : "Available in this job"
@@ -26,6 +24,13 @@ jobs:
           echo $MY_VAR
       - name: not available here
         run: echo {{$VAR2}}
+      - uses: actions/checkout@v1
+      - name: enc and dec
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secret.json secret.json.gpg
+        env:
+          PASSPHRASE: ${{secrets.PASSPHRASE}}
+      - name: checking
+        run: cat $HOME/secret.json
 
   simple-git-action:
     runs-on: ubuntu-latest
