@@ -4,30 +4,38 @@ on:
     branches:
       - master
       - devop
-      - feature   
-    paths:
-      - !**try3.yml
-    tags:
-      - v1
-  
+      - feature  
+env: 
+  MY_VAR: "Is available for all jobs" 
 
-    
 jobs:
+  custome-env-variables:
+    env: 
+      VAR3 : "Available in this job"
+    runs-on: ubuntu-latest
+    steps:
+      - env: 
+          VAR2 : "Available only in this step"
+        run: |
+          echo {{$VAR3}}
+          echo {{$VAR2}}
+          echo {{$env.MY_VAR}}
+      - name: not available here
+        run: echo {{$VAR2}}
+
   simple-git-action:
     runs-on: ubuntu-latest
     steps:
-      - name: Simple Actions
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 1
       - name: getting our local repo
         run: |
-          pwd
-          ls 
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
-          git log --oneline
+          echo $GITHUB_ACTION_PATH
+          echo $GITHUB_ACTION
+          echo $GITHUB_ACTIONS
+          echo $GITHUB_ACTOR
+          echo $GITHUB_REF
           
           
           
