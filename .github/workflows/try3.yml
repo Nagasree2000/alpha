@@ -1,5 +1,11 @@
 name: Shell Commands
 on: [push]
+
+fruits: [
+  { "name": "apple", "quantity": 1 },
+  { "name": "orange", "quantity": 2 },
+  { "name": "pear", "quantity": 1 }
+]
 jobs:
   functions:
     runs-on: ubuntu-18.04
@@ -10,9 +16,6 @@ jobs:
           echo ${{ startsWith('Hello', 'He') }}
           echo ${{ endsWith('Hello', 'o') }}
           echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
-          fruits: [ { snames: apple, quantity: 1 },
-          { snames: orange, quantity: 2 },
-          { snames: pear, quantity: 1 } ]
           echo ${{ fruits.*.snames }}
   
           
