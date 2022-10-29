@@ -4,7 +4,13 @@ on:
     branches:
       - master
       - devop
-      - !feature
+      - feature   
+    paths:
+      - !./try3.yml
+    tags:
+      - v1
+  
+
     
 jobs:
   simple-git-action:
