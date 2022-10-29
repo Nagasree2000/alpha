@@ -3,8 +3,6 @@ on: [push]
 jobs:
   run-shell-command:
     runs-on: ubuntu-22.04
-
-
     steps:
       - name: echo a string
         run: |
@@ -21,7 +19,7 @@ jobs:
           git add -A 
           git commit -m "added again"
           git push origin master
-          jobs:
+          
   create_issue:
     runs-on: ubuntu-latest
     permissions:
