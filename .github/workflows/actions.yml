@@ -1,7 +1,10 @@
 name: Simple Actions
 on:
-  repository_dispatch:
-    types: [build]
+  push:
+    branches:
+      - master
+      - devop
+      - !(feature)
 
     
   
