@@ -19,7 +19,8 @@ jobs:
         run: |
           echo {{$VAR3}}
           echo {{$VAR2}}
-          echo {{$env.MY_VAR}}
+          echo ${{env.MY_VAR}}
+          echo $MY_VAR
       - name: not available here
         run: echo {{$VAR2}}
 
