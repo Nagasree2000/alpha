@@ -6,7 +6,7 @@ on:
       - devop
       - feature  
 env: 
-  MY_VAR: "Is available for all jobs" 
+  MY_VAR: ${{secrets.MY_VAR}} 
 
 jobs:
   custome-env-variables:
