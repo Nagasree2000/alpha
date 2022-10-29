@@ -2,21 +2,40 @@ name: Shell Commands
 on: [push]
 jobs:
   run-shell-command:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
+
+
     steps:
       - name: echo a string
         run: |
           git init
           ls -a 
           git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
-          git clone "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
-          ls -a
           git config --global user.email "anonymous@gmail.com"
           git config --global user.name "anonymous"
+          git fetch
+          git pull origin master
           ls -a 
           echo $RANDOM >> new.txt
           ls -a 
           git add -A 
           git commit -m "added again"
           git push origin master
+          jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write 
+    steps:
+      - name: Create issue using REST API
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "title": "Automated issue for commit: ${{ github.sha }}",
+            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
+            }' \
+          --fail
       
