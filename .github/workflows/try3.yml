@@ -13,8 +13,7 @@ jobs:
           echo ${{ startsWith('Hello', 'He') }}
           echo ${{ endsWith('Hello', 'o') }}
           echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
-          fruits: [{snames:"app", qua:12},{snames:"pp", qua:12},{snames:"bana", qua:10}]
-          echo ${{fruits.*.snames}}
+          echo ${{continue-on-error}}
       - name: checking status
         if: failure()
         run: echo "failure occured"
