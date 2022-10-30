@@ -13,7 +13,7 @@ jobs:
           echo ${{ startsWith('Hello', 'He') }}
           echo ${{ endsWith('Hello', 'o') }}
           echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
-          echo ${{ [{snames:"apple", quant: 20 } {snames:"banana", quant: 22 }{snames:"pineapple", quant: 26 }].*.snames }}
+          
       - name: checking status
         if: failure()
         run: echo "failure occured"
