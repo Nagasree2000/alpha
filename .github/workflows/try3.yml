@@ -13,14 +13,14 @@ jobs:
           echo ${{ startsWith('Hello', 'He') }}
           echo ${{ endsWith('Hello', 'o') }}
           echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
-          echo $continue-on-error
-      - name: checking status
-        if: failure()
-        run: echo "failure occured"
-      - name: testing always
-        timeout-minutes: 360
-        if: always()
-        run: echo "this step runs always"
+
+      - name: setup-node 
+        run: node -v
+      - name: using setup-node
+        uses: actions/setup-node
+        with:
+          node-version: 18
+        run: node -v
       - name: success Commands
         if: success()
         run: echo "success"
