@@ -1,6 +1,14 @@
 name: Shell Commands
 on: [push]
-
+fruits : 
+  - {
+    sname: "apple",
+    qua: 20
+  }
+  - {
+    sname: "bapple",
+    qua: 20
+  }
 
 jobs:
   functions:
