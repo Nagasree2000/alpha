@@ -19,7 +19,7 @@ jobs:
       - name: using setup-node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 6
       - name: success Commands
         run: node -v
 
