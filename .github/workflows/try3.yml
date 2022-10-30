@@ -20,10 +20,8 @@ jobs:
         uses: actions/setup-node
         with:
           node-version: 18
-        run: node -v
       - name: success Commands
-        if: success()
-        run: echo "success"
-      
+        run: node -v
+
           
       
