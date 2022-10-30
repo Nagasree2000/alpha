@@ -5,10 +5,11 @@ on: [push]
 jobs:
   functions:
     runs-on: ubuntu-18.04
+    if: github.event_name == 'push'
     steps:
       - name: functions
         run: |
-          echo ${{ contains([1,2,3,4],4) }}
+          echo ${{ contains(github.event.issue.labels.*.name, 'bug') }}
           echo ${{ startsWith('Hello', 'He') }}
           echo ${{ endsWith('Hello', 'o') }}
           echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
