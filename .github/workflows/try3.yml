@@ -1,22 +1,27 @@
 name: Shell Commands
 on: [push]
 
-fruits: [
-  { "name": "apple", "quantity": 1 },
-  { "name": "orange", "quantity": 2 },
-  { "name": "pear", "quantity": 1 }
-]
+
 jobs:
   functions:
     runs-on: ubuntu-18.04
     steps:
       - name: functions
         run: |
-          echo ${{ contains('Hello','lo') }}
+          echo ${{ contains([1,2,3,4],4) }}
           echo ${{ startsWith('Hello', 'He') }}
           echo ${{ endsWith('Hello', 'o') }}
           echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
-          echo ${{ fruits.*.snames }}
-  
+          echo ${{ [{snames:"apple", quant: 20 } {snames:"banana", quant: 22 }{snames:"pineapple", quant: 26 }].*.snames }}
+      - name: checking status
+        if: failure()
+        run: echo "failure occured"
+      - name: testing always
+        if: always()
+        run: echo "this step runs always"
+      - name: success Commands
+        if: success()
+        run: echo "success"
+      
           
       
