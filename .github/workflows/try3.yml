@@ -1,8 +1,12 @@
 name: Shell Commands
 on: [push]
-
+ 
 jobs:
   functions:
+    strategy: 
+      matrix:
+        fruits: [{snames: app, quant: 20},{snames: baan, quant: 21},{snames: pineapp, quant: 22}]
+      fail-fast: true
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
@@ -13,6 +17,7 @@ jobs:
           echo ${{ startsWith('Hello', 'He') }}
           echo ${{ endsWith('Hello', 'o') }}
           echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
+          echo ${{ matrix.fruits.*.snames}}
 
       - name: setup-node 
         run: node -v
