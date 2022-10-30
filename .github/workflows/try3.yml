@@ -12,7 +12,7 @@ jobs:
           echo ${{ contains(github.event.issue.labels.*.name, 'bug') }}
           echo ${{ startsWith('Hello', 'He') }}
           echo ${{ endsWith('Hello', 'o') }}
-          echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
+          eccho ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
           
       - name: checking status
         if: failure()
