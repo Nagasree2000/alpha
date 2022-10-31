@@ -6,13 +6,13 @@ jobs:
     strategy: 
       matrix:
         os: [ubuntu-latest, windows-latest]
-        nodev: [6,16,18]
+        nodev: [6,8,10]
         exclude: 
-          - os:  windows-latest
+          - os: windows-latest
           - nodev: 6
         include:
           - os: ubuntu-latest
-          - nodev: 16
+          - nodev: 8
           - is_var: "true"
       fail-fast: true
     runs-on: ${{matrix.os}}
