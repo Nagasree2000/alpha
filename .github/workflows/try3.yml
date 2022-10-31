@@ -5,8 +5,7 @@ jobs:
   functions:
     strategy: 
       matrix:
-        nodev: [6,16,18]
-        os: [macos-latest,windows-latest]
+        fruits: [{snames: apple, quant: 20},{snames: bana, quant: 21},{snames: pineapple, quant: 22}]
       fail-fast: true
     runs-on: ${{matrix.os}}
     if: github.event_name == 'push'
@@ -18,6 +17,8 @@ jobs:
           echo ${{ startsWith('Hello', 'He') }}
           echo ${{ endsWith('Hello', 'o') }}
           echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
+          echo ${{ fruits.*.snames}}
+          for i in ${{ fruits.*.snames}} { echo i }
           
 
       - name: setup-node 
