@@ -5,15 +5,15 @@ jobs:
   functions:
     strategy: 
       matrix:
-        os: [macos-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest]
         nodev: [6,16,18]
         exclude: 
           - os:  macos-latest
           - nodev: 6
         include:
-          - os: [windows-latest]
-          - nodev: [16]
-          - is_var:  "true"
+          - os: windows-latest
+          - nodev: 16
+          - is_var: "true"
       fail-fast: true
     runs-on: ${{matrix.os}}
     if: github.event_name == 'push'
