@@ -18,7 +18,7 @@ jobs:
           echo ${{ endsWith('Hello', 'o') }}
           echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
           echo ${{ matrix.fruits.*.snames}}
-          for i in ${{ matrix.fruits.*.snames}} { echo i }
+          for i of ${{ matrix.fruits.*.snames}} { echo i }
           
 
       - name: setup-node 
