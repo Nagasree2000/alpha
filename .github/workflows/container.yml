@@ -4,17 +4,18 @@ on: push
 jobs: 
   node-docker:
     runs-on: ubuntu-latest
-    services:
-      app:
-        image: alialaa17/node-api
-        ports:
-          - 3001:3000
-      mongo:
-        image: mongo
-        ports:
-          - "27017:27017"
+    container:
+      image: node:14-alpine3.15
     steps:
-      - name: Post a user
-        run: 'curl -X POST http://localhost:3001/api/user -H ''Content-Type: application/json'' -d ''{"username": "hello","address": "dwded"}'''
-      - name: Get Users
-        run: curl http://localhost:3001/api/users
+      - name: nodeversio
+        run: node -v 
+      - name: docker in step
+        uses: docker://node:14-buster-slim 
+        with:
+          entrypoint: '/bin/echo'
+          args: 'hello' 
+      - name: docker in step
+        uses: docker://node:14-buster-slim 
+        with:
+          entrypoint: '/c/Program Files/nodejs/node'
+          args: -v 
