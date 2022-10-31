@@ -1,7 +1,6 @@
 name: Shell Commands
 on: [push]
-env: 
-  IS_VAR: ${{matrix.include.is_var}}
+
 jobs:
   functions:
     strategy: 
@@ -16,6 +15,8 @@ jobs:
           - nodev: 8
           - is_var: "true"
       fail-fast: true
+    env: 
+      IS_VAR: ${{matrix.include.is_var}}
     runs-on: ${{matrix.os}}
     if: github.event_name == 'push'
     steps:
