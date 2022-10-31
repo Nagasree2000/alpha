@@ -11,7 +11,7 @@ jobs:
           - os:  macos-latest
           - nodev: 6
         include:
-          - os: windows-latest
+          - os: ubuntu-latest
           - nodev: 16
           - is_var: "true"
       fail-fast: true
