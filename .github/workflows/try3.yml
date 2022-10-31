@@ -25,7 +25,6 @@ jobs:
           echo ${{ startsWith('Hello', 'He') }}
           echo ${{ endsWith('Hello', 'o') }}
           echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
-          echo ${{ matrix.fruits.*.snames}}
       - name: setup-node 
         run: node -v
       - name: using setup-node
