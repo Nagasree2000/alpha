@@ -1,6 +1,7 @@
 name: Shell Commands
 on: [push]
- 
+env: 
+  IS_VAR: ${{matrix.include.is_var}}
 jobs:
   functions:
     strategy: 
@@ -34,7 +35,7 @@ jobs:
       - name: success Commands
         run: |
           node -v
-          echo ${{matrix.include.is_var}}
+          echo IS_VAR
 
           
       
