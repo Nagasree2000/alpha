@@ -5,7 +5,7 @@ jobs:
   functions:
     strategy: 
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest,macos-latest]
         nodev: [6,8,10]
         exclude: 
           - os: windows-latest
@@ -36,7 +36,7 @@ jobs:
       - name: success Commands
         run: |
           node -v
-          echo IS_VAR
+          echo $IS_VAR
 
           
       
