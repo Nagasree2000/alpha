@@ -1,6 +1,6 @@
 name: Simple Actions
 on:
-  push:
+  pull_request:
     branches:
       - master
       - devop

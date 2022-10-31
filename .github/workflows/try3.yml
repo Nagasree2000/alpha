@@ -11,6 +11,7 @@ jobs:
         run: |
           node -v
           echo ${{runner.os}}
+          cat /etc/os-release
 
         
         
