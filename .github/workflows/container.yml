@@ -12,6 +12,6 @@ jobs:
       - name: docker in step
         uses: docker://node:14-buster-slim 
         with:
-          entrypoint: ./script.sh
+          entrypoint: ./samp.sh
           args: 'hello world' 
     
