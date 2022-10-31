@@ -9,7 +9,6 @@ jobs:
     steps:
       - name: nodeversio
         uses: actions/checkout@v3
-        run: node -v 
       - name: docker in step
         uses: docker://node:14-buster-slim 
         with:
