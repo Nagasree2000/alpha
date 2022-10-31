@@ -13,7 +13,7 @@ jobs:
         include:
           - os: ubuntu-latest
             nodev: 8
-          - is_var: "true"
+            is_var: "true"
       fail-fast: true
     env: 
       IS_VAR: ${{matrix.is_var}}
