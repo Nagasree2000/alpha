@@ -2,41 +2,19 @@ name: Shell Commands
 on: [push]
 
 jobs:
-  functions:
-    strategy: 
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        nodev: [6, 8, 10]
-        exclude: 
-          - os: windows-latest
-            nodev: 6
-        include:
-          - os: ubuntu-latest
-            nodev: 8
-            is_var: "true"
-      fail-fast: true
-    env: 
-      IS_VAR: ${{matrix.is_var}}
-    runs-on: ${{matrix.os}}
-    if: github.event_name == 'push'
+  Dockercontainers:
+    runs-on: ubuntu-latest
+    container:
+      image: node:14-alpine3.15 
     steps:
-      - name: functions
-        continue-on-error: true
-        run: |
-          echo ${{ contains(github.event.issue.labels.*.name, 'bug') }}
-          echo ${{ startsWith('Hello', 'He') }}
-          echo ${{ endsWith('Hello', 'o') }}
-          echo ${{ format('Hello {0} {1} {2}','na','mo','rs') }}
-      - name: setup-node 
-        run: node -v
-      - name: using setup-node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{matrix.nodev}}
-      - name: success Commands
+      - name: verifying docker 
         run: |
           node -v
-          echo $IS_VAR
+          echo ${{runner.os}}
+
+        
+        
+    
 
           
       
