@@ -8,7 +8,7 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         nodev: [6,16,18]
         exclude: 
-          - os:  macos-latest
+          - os:  windows-latest
           - nodev: 6
         include:
           - os: ubuntu-latest
