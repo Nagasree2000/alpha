@@ -14,8 +14,4 @@ jobs:
         with:
           entrypoint: ./script.sh
           args: 'hello world' 
-      - name: docker in step
-        uses: docker://node:14-buster-slim 
-        with:
-          entrypoint: '/usr/local/bin/node'
-          args: -v 
+    
