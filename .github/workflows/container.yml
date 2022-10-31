@@ -17,5 +17,5 @@ jobs:
       - name: docker in step
         uses: docker://node:14-buster-slim 
         with:
-          entrypoint: '/c/Program Files/nodejs/node'
+          entrypoint: '/usr/local/bin/node'
           args: -v 
