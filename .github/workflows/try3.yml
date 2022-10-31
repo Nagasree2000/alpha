@@ -9,7 +9,7 @@ jobs:
         nodev: [6, 8, 10]
         exclude: 
           - os: windows-latest
-          - nodev: 6
+            nodev: 6
         include:
           - os: ubuntu-latest
             nodev: 8
