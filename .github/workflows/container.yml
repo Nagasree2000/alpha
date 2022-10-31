@@ -8,12 +8,13 @@ jobs:
       image: node:14-alpine3.15
     steps:
       - name: nodeversio
+        uses: actions/checkout@v3
         run: node -v 
       - name: docker in step
         uses: docker://node:14-buster-slim 
         with:
-          entrypoint: '/bin/echo'
-          args: 'hello' 
+          entrypoint: ./script.sh
+          args: 'hello world' 
       - name: docker in step
         uses: docker://node:14-buster-slim 
         with:
