@@ -7,7 +7,7 @@ jobs:
       matrix:
         fruits: [{snames: apple, quant: 20},{snames: bana, quant: 21},{snames: pineapple, quant: 22}]
       fail-fast: true
-    runs-on: ${{matrix.os}}
+    runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
       - name: functions
