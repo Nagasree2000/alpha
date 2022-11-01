@@ -11,8 +11,9 @@ jobs:
       - name: nodeversio
         uses: actions/checkout@v1
       - name: sending slack message
+        uses: docker://technosophos/slack-notify
         env: 
           SLACK_WEBHOOK:  ${{secrets.SLACK_WEBHOOK}}
           SLACK_MESSAGE:  "Hello slack"
-        run: echo hju
+     
         
