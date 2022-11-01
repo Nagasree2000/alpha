@@ -8,7 +8,7 @@ jobs:
       image: node:14-alpine3.15
     steps:
       - name: nodeversio
-        uses: actions/checkout@v3
+        uses: actions/checkout@v1
       - name: docker in step
         uses: docker://node:14-buster-slim 
         with:
