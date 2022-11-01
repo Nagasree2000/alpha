@@ -9,9 +9,9 @@ jobs:
     steps:
       - name: nodeversio
         uses: actions/checkout@v1
-      - name: docker in step
-        uses: docker://node:14-buster-slim 
-        with:
-          entrypoint: ./samp.sh
-          args: 'hello world' 
-    
+      - name: sending slack message
+        uses: docker://technosophos/slack-notify
+        env: 
+          SLACK_MESSAGE= "Hello slack"
+          SLACK_WEBHOOK = ${{secrets.SLACK_WEBHOOK}}
+        
