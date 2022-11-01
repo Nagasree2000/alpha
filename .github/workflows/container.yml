@@ -4,9 +4,8 @@ on: push
 jobs: 
   node-docker:
     runs-on: ubuntu-latest
-    container:
-      image: alpine:3.16.2
-
+    
+      
     steps:
       - name: nodeversio
         uses: actions/checkout@v1
